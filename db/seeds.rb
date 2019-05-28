@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 user1 = User.create(first_name: "Wilfried", last_name: "Bessovi", email: "wbsvnet@gmail.com", password: "123456")
 boxe1 = Boxe.create(name: "Box1", description: "Location box - Box / garage", caracteristics: "Surface: 20m2", address:"23 rue Paradis", price_per_day: 20, user: user1)
 

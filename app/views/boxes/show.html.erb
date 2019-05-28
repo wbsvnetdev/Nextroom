@@ -1,2 +1,5 @@
-<h1>Boxes#show</h1>
-<p>Find me in app/views/boxes/show.html.erb</p>
+<h2><%= @boxe.name %></h2>
+<p><%= @boxe.address %></p>
+
+<%= link_to "Back", boxes_path %>
+<%= link_to "Delete boxe", box_path(@boxe), method: :delete %>

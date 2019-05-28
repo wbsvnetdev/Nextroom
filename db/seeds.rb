@@ -21,3 +21,6 @@ boxe4 = Boxe.create(name: "Box4", description: "Location box - Box / garage", ca
 user5 = User.create(first_name: "John", last_name: "Doe", email: "jdoe@gmail.com", password: "123456")
 user6 = User.create(first_name: "Maria", last_name: "Carey", email: "mcarey@gmail.com", password: "123456")
 user7 = User.create(first_name: "Winston", last_name: "Churchill", email: "wchurchill@gmail.com", password: "123456")
+
+reservation1 = Reservation.create(start_date:Time.parse("2019-06-03"), end_date:Time.parse("2019-09-03"), user_id: user5, boxe_id: boxe3, total_price: boxe3.price_per_day)
+reservation2 = Reservation.create(start_date:Time.parse("2019-07-03"), end_date:Time.parse("2019-08-03"), user_id: user6, boxe_id: boxe4, total_price: boxe4.price_per_day)

@@ -3,3 +3,11 @@
 
 <%= link_to "Back", boxes_path %>
 <%= link_to "Delete boxe", box_path(@boxe), method: :delete %>
+
+<%= form_for([@boxe, @reservation]) do |f| %>
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %>
+  <%= f.submit %>
+<% end %>

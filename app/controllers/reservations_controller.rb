@@ -11,9 +11,16 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.total_price = @boxe.price_per_day
     @reservation.boxe = @boxe
+    if @reservation.save!
+      redirect_to reservation_path(@reservation)
+    else
+      render :new
+    end
+    raise
   end
 
   def show
+    @reservation = Reservation.all
   end
 
   def destroy

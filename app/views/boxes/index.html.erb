@@ -1,2 +1,5 @@
-<h1>Boxes#index</h1>
-<p>Find me in app/views/boxes/index.html.erb</p>
+<% @boxes.each do |boxe| %>
+  <h2><%= link_to boxe.name, box_path(boxe.id) %></h2>
+<% end %>
+
+<%= link_to "Create a box", new_box_path %>

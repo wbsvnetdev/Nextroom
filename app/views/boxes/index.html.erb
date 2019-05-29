@@ -1,5 +1,18 @@
-<% @boxes.each do |boxe| %>
-  <h2><%= link_to boxe.name, box_path(boxe.id) %></h2>
-<% end %>
-
-<%= link_to "Create a box", new_box_path %>
+<div class="d-flex justify-content-center mt-6"><h1>Results of your search:</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="cards">
+        <% @boxes.each do |boxe| %>
+        <div class="card-product">
+          <img src="https://picsum.photos/200/300?random=1">
+          <div class="card-product-infos">
+            <h2><%= link_to boxe.name, box_path(boxe.id) %></h2>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

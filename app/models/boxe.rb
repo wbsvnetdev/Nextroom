@@ -8,4 +8,6 @@ class Boxe < ApplicationRecord
   validates :description, presence: true
   validates :address, presence: true
   validates :caracteristics, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end

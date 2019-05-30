@@ -22,6 +22,7 @@ class BoxesController < ApplicationController
   def create
     @boxe = Boxe.new(boxe_params)
     authorize @boxe
+    @boxe.user = current_user
     if @boxe.save
       redirect_to box_path(@boxe)
     else
@@ -55,6 +56,6 @@ class BoxesController < ApplicationController
   end
 
   def boxe_params
-    params.require(:boxe).permit(:name, :description, :caracteristics, :address, :price_per_day)
+    params.require(:boxe).permit(:name, :description, :caracteristics, :address, :price_per_day, :photo)
   end
 end

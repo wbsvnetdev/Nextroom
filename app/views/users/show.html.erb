@@ -1,2 +1,56 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row justify-content-center my-4">
+  <div class="col-12 col-lg-7">
+    <div class="card-trip m-3">
+      <img src="https://images.pexels.com/photos/2104742/pexels-photo-2104742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      <div class="card-trip-infos">
+        <div>
+          <div class="py-2">
+            <h2>Prenom</h2>
+            <p><%= current_user.first_name %></p>
+          </div>
+          <div class="py-2">
+            <h2>Nom</h2>
+            <p><%= current_user.last_name %></p>
+          </div>
+          <div class="py-2">
+            <h2>Email</h2>
+            <p><%= current_user.email %></p>
+          </div>
+        </div>
+        <img src='https://ca.slack-edge.com/T02NE0241-UHW32V2J1-d3d98e55b2bf-48' class="card-trip-user avatar-bordered"/>
+      </div>
+    </div>
+    <div >
+      <h2 class="section-title m-2">My Bookings</h2>
+      <hr>
+      <% current_user.reservations.each do |reservation|  %>
+      <div class="card-product m-2">
+        <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <div class="card-product-infos">
+          <h2><%= reservation.boxe.name %> </h2>
+          <p><%= reservation.boxe.description %> </p>
+          <hr>
+          <h2>Booking dates </h2>
+          <p>From: <%= reservation.start_date %> To: <%= reservation.end_date %></p>
+        </div>
+      </div>
+      <% end %>
+      <hr>
+    </div>
+
+    <div >
+      <h2 class="section-title m-2">My Boxes</h2>
+      <hr>
+      <% Boxe.where(user_id: current_user.id).each do |boxe|  %>
+      <div class="card-product m-2">
+        <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <div class="card-product-infos">
+          <h2><%= boxe.name %> </h2>
+          <p><%= boxe.description %> </p>
+        </div>
+      </div>
+      <% end %>
+      <hr>
+    </div>
+  </div>
+</div>

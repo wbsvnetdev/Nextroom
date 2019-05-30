@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 devise_for :users
+resources :users, only: [:show]
 resources :boxes do
   resources :reservations, only: [:create]
 end

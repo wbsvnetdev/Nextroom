@@ -1,5 +1,5 @@
 .container {
-  margin: 50px;
+  margin: 40px, 40px;
 }
 
 .card-product {
@@ -9,6 +9,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 4px;
 }
 
 .card-product img {
@@ -21,10 +22,11 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-decoration: none;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -37,8 +39,9 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+  position: relative;
 }
 
 // Smallest device
@@ -65,13 +68,13 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

@@ -3,6 +3,14 @@ class BoxesController < ApplicationController
 
   def index
     @boxes = policy_scope(Boxe).order(created_at: :desc)
+    @boxes = Boxe.where.not(latitude: nil, longitude: nil)
+    @markers = @boxes.map do |boxe|
+      {
+        lat: boxe.latitude,
+        lng: boxe.longitude,
+        infoWindow: render_to_string(partial: "infoWindow", locals: { boxe: boxe })
+      }
+    end
   end
 
   def new

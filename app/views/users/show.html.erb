@@ -26,12 +26,16 @@
       <% current_user.reservations.each do |reservation|  %>
       <div class="card-product m-2">
         <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-        <div class="card-product-infos">
-          <h2><%= reservation.boxe.name %> </h2>
-          <p><%= reservation.boxe.description %> </p>
-          <hr>
-          <h2>Booking dates </h2>
+        <div class="card-product-infos d-flex justify-content-between" style="width: 750px">
+          <div >
+            <h2><%= reservation.boxe.name %> </h2>
+            <p><%= reservation.boxe.address %> </p>
+          </div>
+          <div>
+            <h2>Booking dates </h2>
           <p>From: <%= reservation.start_date %> To: <%= reservation.end_date %></p>
+          </div>
+
         </div>
       </div>
       <% end %>
@@ -47,6 +51,7 @@
         <div class="card-product-infos">
           <h2><%= boxe.name %> </h2>
           <p><%= boxe.description %> </p>
+          <p><%= boxe.address %> </p>
         </div>
       </div>
       <% end %>

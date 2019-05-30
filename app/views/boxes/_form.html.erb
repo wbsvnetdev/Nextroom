@@ -1,16 +1,32 @@
-<%= form_for(@boxe) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :caracteristics %>
-  <%= f.text_field :caracteristics %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :price_per_day %>
-  <%= f.text_field :price_per_day %>
+  <form>
+  <div class="container-create-box">
+    <h1> Create a new box !</h1>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Description</label>
+    <input type="text" class="form-control" id="exampleFormControlInput2">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Carateristics</label>
+    <input type="text" class="form-control" id="exampleFormControlInput3">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Address</label>
+    <input type="text" class="form-control" id="exampleFormControlInput4">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Price per day</label>
+    <input type="number" class="form-control" id="exampleFormControlInput5">
+  </div>
+    <%= simple_form_for(@boxe) do |f| %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-
-  <%= f.submit %>
 <% end %>
+  <div class="btn-create">
+  <button type="submit" class="btn btn-success btn-block textcolor">Create now!</button>
+  </div>
+  </div>
+</form>

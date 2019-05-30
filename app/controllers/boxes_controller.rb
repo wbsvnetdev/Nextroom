@@ -1,7 +1,14 @@
 class BoxesController < ApplicationController
   before_action :set_boxe, only: [:show, :edit, :update, :destroy]
   def index
-    @boxes = Boxe.all
+    @boxes = Boxe.where.not(latitude: nil, longitude: nil)
+    @markers = @boxes.map do |boxe|
+      {
+        lat: boxe.latitude,
+        lng: boxe.longitude,
+        infoWindow: render_to_string(partial: "infoWindow", locals: { boxe: boxe })
+      }
+    end
   end
 
   def new

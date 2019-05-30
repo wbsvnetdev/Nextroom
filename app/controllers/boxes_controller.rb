@@ -1,6 +1,8 @@
 class BoxesController < ApplicationController
   before_action :set_boxe, only: [:show, :edit, :update, :destroy]
+
   def index
+    @boxes = policy_scope(Boxe).order(created_at: :desc)
     @boxes = Boxe.where.not(latitude: nil, longitude: nil)
     @markers = @boxes.map do |boxe|
       {
@@ -13,10 +15,12 @@ class BoxesController < ApplicationController
 
   def new
     @boxe = Boxe.new
+    authorize @boxe
   end
 
   def create
     @boxe = Boxe.new(boxe_params)
+    authorize @boxe
     if @boxe.save
       redirect_to box_path(@boxe)
     else
@@ -26,10 +30,12 @@ class BoxesController < ApplicationController
 
   def show
     @reservation = Reservation.new
+    authorize @boxe
   end
 
   def update
     @boxe.update(boxe_params)
+    authorize @boxe
   end
 
   def edit
@@ -37,6 +43,7 @@ class BoxesController < ApplicationController
 
   def destroy
     @boxe.delete
+    authorize @boxe
     redirect_to boxes_path
   end
 

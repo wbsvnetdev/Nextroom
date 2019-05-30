@@ -6,11 +6,10 @@ class ReservationsController < ApplicationController
 
   def create
     @boxe = Boxe.find(params[:box_id])
-    # @reservation = Reservation.new(reservation_params)
-    # @reservation.user = current_user
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.total_price = @boxe.price_per_day
     @reservation.boxe = @boxe
+    authorize @reservation
     if @reservation.save!
       redirect_to reservation_path(@reservation)
     else
@@ -20,12 +19,15 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.all
+    authorize @reservation
   end
 
   def destroy
+    authorize @reservation
   end
 
   def index
+    @reservation = policy_scope(Reservation).order(created_at: :desc)
   end
 
   private

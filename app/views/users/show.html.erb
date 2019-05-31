@@ -2,22 +2,21 @@
   <div class="col-12 col-lg-7">
     <div class="card-trip m-3">
       <img src="https://images.pexels.com/photos/2104742/pexels-photo-2104742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      <div id="avatar-card">
+        <img src='https://ca.slack-edge.com/T02NE0241-UHW32V2J1-d3d98e55b2bf-48' class="card-trip-user avatar-bordered"/>
+      </div>
       <div class="card-trip-infos">
         <div>
           <div class="py-2">
-            <h2>Prenom</h2>
-            <p><%= current_user.first_name %></p>
+            <h2><%= current_user.first_name %></h2>
           </div>
           <div class="py-2">
-            <h2>Nom</h2>
-            <p><%= current_user.last_name %></p>
+            <h2><%= current_user.last_name %></h2>
           </div>
           <div class="py-2">
-            <h2>Email</h2>
-            <p><%= current_user.email %></p>
+            <h2><%= current_user.email %></h2>
           </div>
         </div>
-        <img src='https://ca.slack-edge.com/T02NE0241-UHW32V2J1-d3d98e55b2bf-48' class="card-trip-user avatar-bordered"/>
       </div>
     </div>
     <div >

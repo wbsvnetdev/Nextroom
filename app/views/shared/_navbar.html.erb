@@ -25,7 +25,7 @@
       <% else %>
       <li class="nav-item">
         <% if policy(Boxe).create? %>
-        <%= link_to "Rent your boxe", new_box_path %>
+        <%= link_to "Rent your boxe", new_box_path, class: "nav-link" %>
         <% end %>
       </li>
       <li class="nav-item">

@@ -1,12 +1,7 @@
 .search-form-control {
-  position: relative;
-}
-
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+  display: flex;
+  height: 56px;
+  border-radius: 4px;
 }
 
 .search-form-control .form-control {
@@ -23,9 +18,9 @@
 
 .btn-flat {
   color: white;
-  padding: 8px 24px;
+  padding: 8px 50px;
   border-radius: 4px;
-  background: #1EDD88;
+  background-color: #1EDD88;
   transition: background 0.3s ease;
 }
 

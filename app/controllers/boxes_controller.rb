@@ -21,8 +21,9 @@ class BoxesController < ApplicationController
 
   def create
     @boxe = Boxe.new(boxe_params)
-    authorize @boxe
+
     @boxe.user = current_user
+     authorize @boxe
     if @boxe.save
       redirect_to box_path(@boxe)
     else

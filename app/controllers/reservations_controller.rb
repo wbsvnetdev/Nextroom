@@ -18,16 +18,33 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.all
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+  end
+
+  def edit
+    @reservation = Reservation.find(params[:id])
     authorize @reservation
   end
 
   def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
     authorize @reservation
+
+    redirect_to reservations_path
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.update(reservation_params)
+    redirect_to reservations_path
   end
 
   def index
     @reservation = policy_scope(Reservation).order(created_at: :desc)
+    @reservation = Reservation.where(user_id: current_user)
   end
 
   private

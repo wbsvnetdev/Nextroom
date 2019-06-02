@@ -1,2 +1,27 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<div >
+  <h2 class="section-title m-2">My Bookings</h2>
+  <hr>
+  <% current_user.reservations.each do |reservation|  %>
+  <div class="card-product m-2">
+    <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <div class="card-product-infos d-flex justify-content-between">
+      <div >
+        <h2><%= reservation.boxe.name %> </h2>
+        <p><%= reservation.boxe.address %> </p>
+      </div>
+      <div>
+        <h2>Booking dates </h2>
+        <p>From: <%= reservation.start_date %> To: <%= reservation.end_date %></p>
+      </div>
+      <div>
+      <%= link_to "Edit", edit_reservation_path(reservation), :class => "btn btn-success textcolor" %>
+        <%= link_to "Delete", reservation_path(reservation), :class => "btn btn-success textcolor",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </div>
+    </div>
+
+  </div>
+  <% end %>
+  <hr>
+</div>

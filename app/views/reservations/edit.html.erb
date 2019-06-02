@@ -1,0 +1,21 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12, col-lg-5">
+      <div class="cards " style="width: 70rem;">
+        <div class="card-body border border-success">
+          <div class="text-center">
+            <h1>Update your booking</h1>
+          </div>
+          <%= simple_form_for ([@boxe, @reservation]) do |f| %>
+          <div class="form-group">
+            <%= f.input :start_date, input_html: { class: "datepicker"}, class: 'form-control' %>
+            <%= f.input :end_date, input_html: { class: "datepicker"}, class: 'form-control' %>
+          </div>
+          <hr>
+          <%= f.submit "Update", class: "btn btn-success btn-block textcolor" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

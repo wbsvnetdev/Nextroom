@@ -39,15 +39,19 @@ class BoxesController < ApplicationController
   def update
     @boxe.update(boxe_params)
     authorize @boxe
+    redirect_to user_path(current_user)
   end
 
   def edit
+    @boxe = Boxe.find(params[:id])
+    authorize @boxe
   end
 
   def destroy
-    @boxe.delete
+    @boxe = Boxe.find(params[:id])
+    @boxe.destroy
     authorize @boxe
-    redirect_to boxes_path
+    redirect_to user_path(current_user)
   end
 
   private

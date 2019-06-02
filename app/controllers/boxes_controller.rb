@@ -4,6 +4,16 @@ class BoxesController < ApplicationController
 
   def index
     @boxes = policy_scope(Boxe).order(created_at: :desc)
+    if params[:query].present?
+      @boxes = Boxe.search_by_name_and_description(params[:query])
+      @markers = @boxes.map do |boxe|
+      {
+        lat: boxe.latitude,
+        lng: boxe.longitude,
+        infoWindow: render_to_string(partial: "infoWindow", locals: { boxe: boxe })
+      }
+    end
+    else
     @boxes = Boxe.where.not(latitude: nil, longitude: nil)
     @markers = @boxes.map do |boxe|
       {
@@ -12,6 +22,7 @@ class BoxesController < ApplicationController
         infoWindow: render_to_string(partial: "infoWindow", locals: { boxe: boxe })
       }
     end
+  end
   end
 
   def new
@@ -55,6 +66,7 @@ class BoxesController < ApplicationController
   end
 
   private
+
 
   def set_boxe
     @boxe = Boxe.find(params[:id])

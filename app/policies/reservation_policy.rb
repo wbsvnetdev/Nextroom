@@ -10,7 +10,7 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+   return true
   end
 
   def update?

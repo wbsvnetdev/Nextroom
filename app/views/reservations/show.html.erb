@@ -1,13 +1,24 @@
-<div class="container d-flex justify-content-center">
+<div >
+  <h2 class="section-title m-2">Booking : <%= @reservation.id %></h2>
+  <hr>
 
-<div class="paddingtop">
-<div class="confirmation">
-<h2>Your reservation is confirmed!</h2>
-</div>
-<div class="space-between">
-  <p>You will receive an email about this reservation.
-See you soon!</p>
-</div>
-<%= link_to "Retour", user_path(current_user), class: "btn btn-success btn-block btn-lg" %>
-</div>
+  <div class="card-product m-2">
+    <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <div class="card-product-infos d-flex justify-content-between">
+      <div>
+        <h2><%= @reservation.boxe.name %> </h2>
+        <p><%= @reservation.boxe.address %> </p>
+      </div>
+      <div>
+        <h2>Booking dates </h2>
+        <p>From: <%= @reservation.start_date %> To: <%= @reservation.end_date %></p>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <hr>
 </div>

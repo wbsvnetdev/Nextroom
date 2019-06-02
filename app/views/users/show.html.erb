@@ -19,38 +19,28 @@
         </div>
       </div>
     </div>
-    <div >
-      <h2 class="section-title m-2">My Bookings</h2>
-      <hr>
-      <% current_user.reservations.each do |reservation|  %>
-      <div class="card-product m-2">
-        <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-        <div class="card-product-infos d-flex justify-content-between" style="width: 750px">
-          <div >
-            <h2><%= reservation.boxe.name %> </h2>
-            <p><%= reservation.boxe.address %> </p>
-          </div>
-          <div>
-            <h2>Booking dates </h2>
-          <p>From: <%= reservation.start_date %> To: <%= reservation.end_date %></p>
-          </div>
 
-        </div>
-      </div>
-      <% end %>
-      <hr>
-    </div>
 
     <div >
       <h2 class="section-title m-2">My Boxes</h2>
       <hr>
-      <% Boxe.where(user_id: current_user.id).each do |boxe|  %>
+      <% Boxe.where(user_id: current_user.id).each do |boxe| %>
       <div class="card-product m-2">
         <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-        <div class="card-product-infos">
-          <h2><%= boxe.name %> </h2>
+        <div class="card-product-infos d-flex justify-content-between" style="width: 750px">
+          <div>
+            <h2><%= boxe.name %> </h2>
           <p><%= boxe.description %> </p>
           <p><%= boxe.address %> </p>
+          </div>
+
+           <div>
+      <%= link_to "Edit", edit_box_path(boxe),:class => "btn btn-success textcolor" %>
+        <%= link_to "Delete", box_path(boxe),:class => "btn btn-success textcolor",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </div>
+
         </div>
       </div>
       <% end %>

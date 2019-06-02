@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boxes
-  has_many :boxes, through: :reservation
-  has_many :reservations
+  has_many :boxes, through: :reservation, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   validates :email, presence: true, uniqueness: true
 end

@@ -1,6 +1,21 @@
 <div class="paddingtop-results">
 <div class="text-center m-3">
-  <h2>Available boxes to rent near you</h2>
+
+  <div class="container">
+    <div class="row justify-content-center">
+    <div>
+        <%= form_tag boxes_path, method: :get do %>
+        <%= text_field_tag :query,params[:query],class: "form-control", placeholder: "Find a box"%>
+    </div>
+    <div>
+      <button class="btn btn-success textcolor">Find your box</button>
+    </div>
+
+  </div>
+  </div>
+
+
+<% end %>
   <hr>
 </div>
 </div>

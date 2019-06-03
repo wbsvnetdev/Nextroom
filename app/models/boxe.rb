@@ -1,6 +1,7 @@
 class Boxe < ApplicationRecord
   belongs_to :user
   geocoded_by :address
+  has_many :reviews, dependent: :destroy
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :price_per_day, presence: true

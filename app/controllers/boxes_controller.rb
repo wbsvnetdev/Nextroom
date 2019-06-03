@@ -44,6 +44,7 @@ class BoxesController < ApplicationController
 
   def show
     @reservation = Reservation.new
+    @review = Review.new
     authorize @boxe
   end
 

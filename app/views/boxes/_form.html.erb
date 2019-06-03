@@ -1,16 +1,22 @@
-
-  <div class="container-create-box">
-    <%= simple_form_for(@boxe) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :caracteristics %>
-    <%= f.input :price_per_day %>
-    <%= f.input :address %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.button :submit, class: 'btn btn-success btn-block textcolor' %>
-    <% end %>
-
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12, col-lg-5">
+      <div class="cards " style="width: 70rem;">
+        <div class="card-body border border-success">
+          <div class="container-create-box">
+            <%= simple_form_for(@boxe) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :caracteristics %>
+            <%= f.input :price_per_day %>
+            <%= f.input :address %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit, class: 'btn btn-success btn-block textcolor' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
+</div>

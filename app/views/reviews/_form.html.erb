@@ -1,0 +1,6 @@
+<div>
+  <%= simple_form_for([boxe, review], remote: true ) do |form| %>
+  <%= form.input :content, as: :text, class: 'form-control' %>
+  <%= form.button :submit,'Add a review', class: 'btn btn-success textcolor' %>
+  <% end %>
+</div>

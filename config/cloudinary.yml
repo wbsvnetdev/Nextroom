@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dntonmdrr
+  api_key: '567973461133785'
+  api_secret: wYA6tBJ6aFd1m5yXSejpod69G_M
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dntonmdrr
+  api_key: '567973461133785'
+  api_secret: wYA6tBJ6aFd1m5yXSejpod69G_M
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dntonmdrr
+  api_key: '567973461133785'
+  api_secret: wYA6tBJ6aFd1m5yXSejpod69G_M
+  enhance_image_tag: true
+  static_file_support: false

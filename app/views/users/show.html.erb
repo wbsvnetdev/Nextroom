@@ -34,8 +34,34 @@
           <p><%= boxe.address %> </p>
           </div>
 
+<!--
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  Edit
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <%= simple_form_for(boxe) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :caracteristics %>
+            <%= f.input :price_per_day %>
+            <%= f.input :address %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit, class: 'btn btn-success btn-block textcolor' %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
            <div>
-      <%= link_to "Edit", edit_box_path(boxe),:class => "btn btn-success textcolor" %>
+      <%= link_to "Edit", edit_box_path(boxe),:class => "btn btn-success textcolor", :id => 'exampleModal', "data-toggle" => "modal", 'data-target' => '#exampleModal'%>
         <%= link_to "Delete", box_path(boxe),:class => "btn btn-success textcolor",
       method: :delete,
       data: { confirm: "Are you sure?" } %>
@@ -46,5 +72,10 @@
       <% end %>
       <hr>
     </div>
+
+
+<!-- Button trigger modal -->
+
+
   </div>
 </div>

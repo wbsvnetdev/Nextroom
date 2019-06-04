@@ -21,8 +21,38 @@
     </div>
 
 
-    <div >
-      <h2 class="section-title m-2">My Boxes</h2>
+   <hr>
+
+        <div class="d-flex justify-content-between">
+        <h2 class="section-title ">My Boxes</h2>
+
+
+          <!-- Modal -->
+<div class="modal fade" id="createFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <%= simple_form_for(@boxe) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :caracteristics %>
+            <%= f.input :price_per_day %>
+            <%= f.input :address %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit, class: 'btn btn-success btn-block textcolor' %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <p><%= link_to "Create a Boxe", new_box_path,:class => "btn btn-success textcolor", :id => 'createFormModal', "data-toggle" => "modal", 'data-target' => '#createFormModal'%></p>
+      </div>
+
+
+
       <hr>
       <% Boxe.where(user_id: current_user.id).each do |boxe| %>
       <div class="card-product m-2">
@@ -34,10 +64,6 @@
           <p><%= boxe.address %> </p>
           </div>
 
-<!--
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-  Edit
-</button> -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

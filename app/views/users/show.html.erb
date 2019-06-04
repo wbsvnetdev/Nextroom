@@ -26,10 +26,10 @@
       <hr>
       <% Boxe.where(user_id: current_user.id).each do |boxe| %>
       <div class="card-product m-2">
-        <img src="https://images.pexels.com/photos/220994/pexels-photo-220994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <%= cl_image_tag boxe.photo %>
         <div class="card-product-infos d-flex justify-content-between" style="width: 750px">
           <div>
-            <h2><%= boxe.name %> </h2>
+            <h2><%= link_to boxe.name, box_path(boxe)%> </h2>
           <p><%= boxe.description %> </p>
           <p><%= boxe.address %> </p>
           </div>

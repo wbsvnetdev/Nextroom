@@ -21,8 +21,15 @@
     </div>
 
 
-    <div >
-      <h2 class="section-title m-2">My Boxes</h2>
+   <hr>
+
+        <div class="d-flex justify-content-between">
+        <h2 class="section-title ">My Boxes</h2>
+        <p><%= link_to "Create a Boxe", new_box_path,:class => "btn btn-success textcolor" %></p>
+      </div>
+
+
+
       <hr>
       <% Boxe.where(user_id: current_user.id).each do |boxe| %>
       <div class="card-product m-2">
